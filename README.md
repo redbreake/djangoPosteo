@@ -36,9 +36,8 @@ Sigue estos pasos para configurar y ejecutar el proyecto localmente:
 3.  **Instalar las dependencias:**
 
     ```bash
-    pip install Django
+    pip install -r requirements.txt
     ```
-    *(Nota: En un proyecto real, generarías un archivo `requirements.txt` con `pip freeze > requirements.txt` y luego instalarías con `pip install -r requirements.txt`)*
 
 4.  **Aplicar las migraciones de la base de datos:**
 
