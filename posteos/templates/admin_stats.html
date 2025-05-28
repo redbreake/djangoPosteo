@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Estadísticas de Administración{% endblock %}
+
+{% block content %}
+  <h2>Estadísticas de la Aplicación</h2>
+  <p>Total de Usuarios Registrados: {{ total_users }}</p>
+  <p>Total de Posteos Creados: {{ total_posts }}</p>
+  <p>Total de Visitas Registradas (Landing Page y Lista de Posteos): {{ total_pageviews }}</p>
+{% endblock %}

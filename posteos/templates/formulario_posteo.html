@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Posteo{% endblock %}
+
+{% block content %}
+  <h2>{% if form.instance.pk %}Editar Posteo{% else %}Crear Nuevo Posteo{% endif %}</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar Posteo</button>
+  </form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Posteos{% endblock %}
+
+{% block content %}
+  <h2>Todos los Posteos</h2>
+  {% if user.is_authenticated %}
+    <p><a href="{% url 'crear_post' %}">Crear Nuevo Posteo</a></p>
+  {% endif %}
+  <ul>
+    {% for post in posteos %}
+      <li>
+        <h3><a href="{% url 'detalle_post' post.pk %}">{{ post.titulo }}</a></h3>
+        <p>Por: {{ post.autor.username }} el {{ post.fecha_creacion|date:"Y-m-d H:i" }}</p>
+        <p>{{ post.contenido|truncatechars:200 }}</p>
+        {% if user.is_authenticated and user == post.autor or user.is_superuser %}
+          <p>
+            <a href="{% url 'editar_post' post.pk %}">Editar</a> |
+            <a href="{% url 'eliminar_post' post.pk %}">Eliminar</a>
+          </p>
+        {% endif %}
+      </li>
+    {% empty %}
+      <li>No hay posteos disponibles.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
